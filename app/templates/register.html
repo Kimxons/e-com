@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}
+	Register - E-com
+{% endblock %}
+
+{% block content %}
+	<h3 class="text-center"> Register to E-com </h3>
+	<hr>
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+		{% for c, msg in msgs %}
+			{% if c == 'error' %}
+				<div class="flash-error">
+			{% else %}
+				<div class="success">
+			{% endif %}
+				{{ msg | safe }}</div><br>
+		{% endfor %}
+	{% endwith %}
+	<div class="forms">
+		{{ render_form(form) }}
+	</div>
+{% endblock %}
